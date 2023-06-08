@@ -19,7 +19,6 @@ const Nav = styled.div`
         padding: 16px;
        }
      }
- 
   
 `
 
