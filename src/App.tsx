@@ -2,28 +2,18 @@ import React from 'react';
 import {HashRouter, Routes, Route, Outlet, Link} from 'react-router-dom';
 import styled from 'styled-components';
 import './index.scss'
+import Nav from './components/Nav';
 
 const Wrapper = styled.div`
-  border: 1px solid red;
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 `
-const Nav = styled.div`
-  border: 1px solid green;
-  >ul{
-    display: flex;
-    >li{
-        width: 33.3333%;
-        text-align: center;
-        padding: 16px;
-       }
-     }
-  
-`
+
 
 const Main = styled.div`
-  border: 1px solid blue;
+
   flex-grow: 1;
   overflow: auto;
 `
@@ -35,19 +25,7 @@ const Layout = () => {
           <Outlet/>
         </Main>
 
-      <Nav>
-        <ul>
-          <li>
-            <Link to="/money">记账页</Link>
-          </li>
-          <li>
-            <Link to="/tags">标签页</Link>
-          </li>
-          <li>
-            <Link to="/statistics">统计页</Link>
-          </li>
-        </ul>
-      </Nav>
+        <Nav/>
 
       </Wrapper>
   );
