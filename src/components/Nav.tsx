@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import React from 'react';
-require('icons/money.svg')
-require('icons/tags.svg')
-require('icons/statistic.svg')
+import Icon from './Icon';
+
 // import x from 'icons/tags.svg'   会被 treeshrink 删掉
  // console.log(x);
 
@@ -36,21 +35,15 @@ const Nav =() => {
   <NavWrapper>
     <ul>
       <li>
-        <svg className="icon" >
-          <use xlinkHref="#tags" />
-        </svg>
+        <Icon name={"tags"}></Icon>
         <Link to="/tags">标签</Link>
       </li>
       <li>
-        <svg className="icon" >
-          <use xlinkHref="#money" />
-        </svg>
+        <Icon name={"money"}></Icon>
         <Link to="/money">记账页</Link>
       </li>
       <li>
-        <svg className="icon" >
-          <use xlinkHref="#statistic" />
-        </svg>
+        <Icon name={"statistic"}></Icon>
         <Link to="/statistics">统计页</Link>
       </li>
     </ul>
