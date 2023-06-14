@@ -1,22 +1,12 @@
 import React from 'react';
-import {HashRouter, Routes, Route, Outlet, Link} from 'react-router-dom';
-import styled from 'styled-components';
-import './index.scss'
+import {HashRouter, Routes, Route, } from 'react-router-dom';
+import './index.scss';
 import Money from './views/Money';
 import Tags from 'views/Tags';
 import Statistics from './views/Statistics';
 import NoPage from './views/Nopage';
+import Layout from './views/Layout';
 
-const Wrapper = styled.div`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-`
-
-const Main = styled.div`
-  flex-grow: 1;
-  overflow: auto;
-`
 function App() {
   return (
     <HashRouter>
@@ -32,16 +22,6 @@ function App() {
     </HashRouter>
   );
 }
-
-const Layout = () => {
-  return (
-      <Wrapper>
-        <Main>
-          <Outlet/>
-        </Main>
-      </Wrapper>
-  );
-};
 
 export default App;
 

@@ -10,24 +10,28 @@ import Icon from './Icon';
 const NavWrapper = styled.div`
   box-shadow: 0 0 3px rgba(0,0,0,0.25);
   line-height: 24px;
-  >ul{
+  >ul {
     display: flex;
-    >li{
-        width: 33.3333%;
-        text-align: center;
+
+    > li {
+      width: 33.3333%;
+      text-align: center;
+
+      > a {
         padding: 16px;
         display: flex;
         flex-direction: column;
-        text-align: center;
         justify-content: center;
         align-items: center;
-        .icon{
+
+        .icon {
           width: 24px;
           height: 24px;
           padding: 4px 0;
         }
-       }
-     }
+      }
+    }
+  }
 `
 
 const Nav =() => {
@@ -35,16 +39,22 @@ const Nav =() => {
   <NavWrapper>
     <ul>
       <li>
-        <Icon name={"tags"}></Icon>
-        <Link to="/tags">标签</Link>
+        <Link to="/tags">
+          <Icon name={"tags"}></Icon>
+          标签页
+        </Link>
       </li>
       <li>
-        <Icon name={"money"}></Icon>
-        <Link to="/money">记账页</Link>
+        <Link to="/money">
+          <Icon name={"money"}></Icon>
+          记账页
+        </Link>
       </li>
       <li>
-        <Icon name={"statistic"}></Icon>
-        <Link to="/statistics">统计页</Link>
+        <Link to="/statistics">
+          <Icon name={"statistic"}></Icon>
+          统计页
+        </Link>
       </li>
     </ul>
   </NavWrapper>
