@@ -3,6 +3,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TagsSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: start;
+  flex-grow: 1;
   background: #FFF;
   padding: 12px 16px;
   > ol{
@@ -133,9 +138,13 @@ const NumberPadSection = styled.section`
   }
        
 `
+const MyLayout = styled(Page)`
+  display: flex;
+  flex-direction: column;
+`
 const Money = () => {
   return (
-    <Page>
+    <MyLayout>
       <TagsSection>
         <ol>
           <li>衣</li>
@@ -178,7 +187,7 @@ const Money = () => {
           <button className="dot">.</button>
         </div>
       </NumberPadSection>
-    </Page>
+    </MyLayout>
   )
 };
 export default Money
