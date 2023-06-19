@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import React, {useState} from 'react';
 
-const NumberPadSection = styled.section`
+const Wrapper = styled.section`
   > .output{
     background: white;
     line-height: 72px;
@@ -12,7 +13,7 @@ const NumberPadSection = styled.section`
     
   }
   > .pad{
-    //border: 1px solid red; //直接使用浮动的话会造成高度坍塌  要使用清除浮动
+    //border: 1px solid red; //直接使用浮动的话会造成高度坍塌      要使用清除浮动
     > button{
       font-size: 18px;
       float: left;
@@ -62,4 +63,80 @@ const NumberPadSection = styled.section`
   }
        
 `
+const NumberPadSection:React.FC = () => {
+  const [output,setOutput] = useState('0')
+  const onclickButtonWrapper = (e:React.MouseEvent) => {
+    //console.log(e);
+    const text = (e.target as HTMLButtonElement).textContent;
+    //console.log(text);
+    if(text === null ){return}
+    switch (text){
+      case '0' :
+      case '1' :
+      case '2' :
+      case '3' :
+      case '4' :
+      case '5' :
+      case '6' :
+      case '7' :
+      case '8' :
+      case '9' :
+      case '10' :
+        //console.log(text);
+        if(output === '0'){
+          setOutput(text)
+        }else {
+          setOutput(output + text)
+        }
+        break
+      case 'OK':
+        console.log('OK');
+        break
+      case '删除':
+        //console.log('删除');
+        if(output.length === 1){
+          setOutput('0')
+        }else{
+          setOutput(output.slice(0,output.length-1))
+      }
+        break
+      case '清空':
+        //console.log('清空');
+        setOutput('0')
+        break
+      case '.':
+        //console.log('点');
+        if(output.indexOf('.')>=0){
+          return;
+        }else {
+          setOutput(output+'.')
+        }
+        break
+    }
+
+  }
+  return(
+    <Wrapper>
+      <div className="output">
+        {output}
+      </div>
+      <div className="pad clearfix" onClick={onclickButtonWrapper}>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>删除</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>清空</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button className="OK">OK</button>
+        <button className="zero">0</button>
+        <button className="dot">.</button>
+      </div>
+    </Wrapper>
+  )
+}
 export default NumberPadSection
