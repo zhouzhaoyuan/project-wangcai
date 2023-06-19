@@ -22,7 +22,7 @@ const Wrapper = styled.section`
     }
   }
 `
-const NoteSection = () => {
+const NoteSection:React.FC = () => {
   const [note,setNote] = useState("")
   const refInput = useRef<HTMLInputElement>(null)
   const onBlur = () => {
@@ -40,7 +40,6 @@ const NoteSection = () => {
                defaultValue={note}
                onBlur={onBlur}
                //onChange={(e)=>setNote(e.target.value)}
-
         />
       </label>
     </Wrapper>
