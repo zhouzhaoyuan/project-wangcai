@@ -24,17 +24,21 @@ const Wrapper = styled.section`
     }
   }
 `
-const CategorySection:FC = () => {
+type Props = {
+  //类型说明
+  value:'-' | '+',
+  onChange:(selcted:'-' | '+') => void
+}
+const CategorySection:FC<Props> = (props) => {
   const categoryMap ={'-':'支出','+':'收入'}
-  const [category,setCategory] = useState('-')
   const [categoryList] = useState<('-'|'+')[]>(['-', '+'])
-
+  const category = props.value
   return(
     <Wrapper>
       <ul>
         {categoryList.map(c =>
           <li className={category === c ? 'selected' : ''}
-              onClick={() => {setCategory(c)}}
+              onClick={() => {props.onChange(c)}}
           >
             {categoryMap[c]}
           </li>

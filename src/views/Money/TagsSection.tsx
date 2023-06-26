@@ -9,54 +9,61 @@ const Wrapper = styled.section`
   flex-grow: 1;
   background: #FFF;
   padding: 12px 16px;
-  > ol{
+
+  > ol {
     margin: 0 -12px;
-    > li{
+
+    > li {
       background: #D9D9D9;
       border-radius: 18px;
       display: inline-block;
       padding: 3px 18px;
       font-size: 14px;
       margin: 8px 12px;
-      &.selected{
+
+      &.selected {
         background-color: #f60;
       }
-      
+
     }
   }
-  > button{
+
+  > button {
     background: none;
     border: none;
     border-bottom: 1px solid #333;
     color: #666;
-    padding: 2px 4px ;
-    margin-top: 8px ;
+    padding: 2px 4px;
+    margin-top: 8px;
   }
-`
-
-const TagsSection:FC = (props) => {
-  const [tags,setTags] = useState<string[]>(['衣','食','住','行'])
-  const [selectedTags,setSelectedTags] = useState<string[]>([])
+`;
+type Props = {
+  value: string[],
+  onChange: (selected:string[]) => void
+}
+const TagsSection: FC<Props> = (props) => {
+  const [tags, setTags] = useState<string[]>(['衣', '食', '住', '行']);
+  const selectedTags = props.value;
   const onAddTag = () => {
-    const tagName = window.prompt("你需要新增的标签为：")
-    if(tagName !== null){
-      setTags([...tags,tagName])
+    const tagName = window.prompt('你需要新增的标签为：');
+    if (tagName !== null) {
+      setTags([...tags, tagName]);
     }
-  }
-  const onToggleTag = (tag:string) => {
-    const index = selectedTags.indexOf(tag)
-    if(index >= 0){
-      setSelectedTags(selectedTags.filter(t => t !== tag))
+  };
+  const onToggleTag = (tag: string) => {
+    const index = selectedTags.indexOf(tag);
+    if (index >= 0) {
+      props.onChange(selectedTags.filter(t => t !== tag));
       // 如果 tag 已被选中，就复制所有没有被选中的 tag ，作为新的 selectedTag
-    }else {
-      setSelectedTags([...selectedTags,tag])
+    } else {
+      props.onChange([...selectedTags, tag]);
     }
-  }
-  return(
+  };
+  return (
     <Wrapper>
       <ol>
         {tags.map(tag =>
-          <li key={tag} onClick={() => {onToggleTag(tag)}}
+          <li key={tag} onClick={() => {onToggleTag(tag);}}
               className={selectedTags.indexOf(tag) >= 0 ? 'selected' : ''}>
             {tag}
           </li>
@@ -64,6 +71,6 @@ const TagsSection:FC = (props) => {
       </ol>
       <button onClick={onAddTag}>新增标签</button>
     </Wrapper>
-  )
-}
-export default TagsSection
+  );
+};
+export default TagsSection;
