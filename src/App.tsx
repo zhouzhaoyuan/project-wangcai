@@ -6,6 +6,7 @@ import Tags from 'views/Tags';
 import Statistics from './views/Statistics';
 import NoPage from './views/Nopage';
 import Layout from './views/Layout';
+import {Tag} from './views/Tag';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Layout/>}>
           <Route index element={<Money/>}/>
           <Route path="tags" element={<Tags/>}/>
+          <Route path="/tags/:tags" element={<Tag/>}/>
           <Route path="money" element={<Money/>}/>
           <Route path="statistics" element={<Statistics/>}/>
           <Route path="*" element={<NoPage/>}/>
