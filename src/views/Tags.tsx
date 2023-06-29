@@ -1,11 +1,17 @@
 import Page from '../components/Page';
-import React from 'react';
+import React, {useState} from 'react';
+import {useTags} from 'useTags';
 
 const Tags = () => {
-  return(
+const {tags,setTags} = useTags()
+  return (
     <Page>
-      <h1>标签页</h1>
+      <ol>
+        {tags.map(tag =>
+          <li key={tag}>{tag}</li>
+        )}
+      </ol>
     </Page>
-  )
+  );
 };
-export default Tags
+export default Tags;

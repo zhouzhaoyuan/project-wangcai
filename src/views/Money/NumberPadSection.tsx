@@ -2,22 +2,20 @@ import React from 'react';
 import {Wrapper} from './NumberPadSection/Wrapper';
 import {generateOutput} from './NumberPadSection/generateOutput';
 
-
 type Props = {
   value: number,
-  onChange: (value:number) => void
-  onOk?:() =>void
+  onChange: (value: number) => void
+  onOk?: () => void
 }
 const NumberPadSection: React.FC<Props> = (props) => {
-  const output = props.value.toString()
-
+  const output = props.value.toString();
   const setOutput = (output: string) => {
-    let value
+    let value;
     if (output.length > 16) {
       value = parseFloat(output.slice(0, 16));
     } else if (output.length === 0) {
       value = 0;
-    }else {
+    } else {
       value = parseFloat(output);
     }
     props.onChange(value);
@@ -29,7 +27,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
     if (text === null) {return;}
     if (text === 'OK') {
       //TODO
-      if(props.onOk){props.onOk()}
+      if (props.onOk) {props.onOk();}
       return;
     }
     if ('0123456789.'.split('').concat(['删除', '清空']).indexOf(text) >= 0) {
