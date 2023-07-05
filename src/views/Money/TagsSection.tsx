@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import React, {FC} from 'react';
 import {useTags} from 'useTags';
+import {createId} from 'lib/createid';
 
 const Wrapper = styled.section`
   display: flex;
@@ -48,7 +49,7 @@ const TagsSection: FC<Props> = (props) => {
   const onAddTag = () => {
     const tagName = window.prompt('你需要新增的标签为：');
     if (tagName !== null) {
-      setTags([...tags, {id:Math.random(),name:tagName}]);
+      setTags([...tags, {id:createId(),name:tagName}]);
     }
   };
   const onToggleTag = (tagId: number) => {
