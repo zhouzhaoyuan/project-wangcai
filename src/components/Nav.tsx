@@ -53,7 +53,7 @@ const Nav =() => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/money">
+        <NavLink to="/money" >
           <Icon name={"money"}></Icon>
           记账页
         </NavLink>
