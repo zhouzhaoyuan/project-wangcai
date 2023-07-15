@@ -9,14 +9,15 @@ let importAll = (requireContext: __WebpackModuleApi.RequireContext) => requireCo
 try {importAll(require.context('icons', true, /\.svg$/));} catch (error) {console.log(error);}
 
 type Props = {
-  name ?: string
-}
-const Icon = (props:Props) => {
-  return(
-    <svg className="icon" >
-      {props.name && <use xlinkHref= {`#${props.name}`}/>}
+  name?: string;
+} & React.SVGAttributes<SVGSVGElement>;
+const Icon = (props: Props) => {
+  const {name, children, className, ...rest} = props;
+  return (
+    <svg className="icon"  {...rest}>
+      {props.name && <use xlinkHref={`#${props.name}`}/>}
     </svg>
-  )
-}
+  );
+};
 
-export default Icon
+export default Icon;

@@ -21,20 +21,26 @@ const useTags = () => {
     return result;
   };
   const updateTag = (id: number, obj: { name: string }) => {
-    //获取你要改的tag的下标
-    const index = findTagIndex(id);
-    //深拷贝tag 得到 tagClone
-    const tagClone = JSON.parse(JSON.stringify(tags));
-    //把tagClone的第index删掉，换成{id:id , name:obj.name}
-    tagClone.splice(index, 1, {id:id, name: obj.name});
-    setTags(tagClone);
+    // //获取你要改的tag的下标
+    // const index = findTagIndex(id);
+    // //深拷贝tag 得到 tagClone
+    // const tagClone = JSON.parse(JSON.stringify(tags));
+    // //把tagClone的第index删掉，换成{id:id , name:obj.name}
+    // tagClone.splice(index, 1, {id:id, name: obj.name});
+    // setTags(tagClone);
+
+    //更简单的写法
+    setTags(tags.map(tag => tag.id === id ? {id:id,name:obj.name} : tag ))
   };
 
   const deleteTag = (id:number) => {
-    const index = findTagIndex(id)
-    const tagClone = JSON.parse(JSON.stringify(tags))
-    tagClone.splice(index,1)
-    setTags(tagClone)
+    // const index = findTagIndex(id)
+    // const tagClone = JSON.parse(JSON.stringify(tags))
+    // tagClone.splice(index,1)
+    // setTags(tagClone)
+
+    //更简单写法
+    setTags(tags.filter(tag => tag.id !== id))
   }
 
 
