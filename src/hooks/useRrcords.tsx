@@ -1,5 +1,4 @@
 import {useEffect, useState} from 'react';
-import {data} from 'browserslist';
 
 type RecordItem = {
   tagIds:number[]
@@ -15,7 +14,7 @@ const useRecords = () => {
     setRecords(JSON.parse(window.localStorage.getItem("records") || "[]"))
   },[])
   useEffect(() => {
-    window.localStorage.setItem('record',JSON.stringify(records))
+    window.localStorage.setItem('records',JSON.stringify(records))
   },[records])
   const addRecord = (newRecord:newRecordItem) => {
     if(newRecord.amount<=0){

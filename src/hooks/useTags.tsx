@@ -15,12 +15,12 @@ const useTags = () => {
         {id: createId(), name: '行'},
       ];
     }
-    setTags(localTags)
-  },[]); // 组件挂载时执行
+    setTags(localTags);
+  }, []); // 组件挂载时执行
 
-  useUpdate(()=>{
-    window.localStorage.setItem('tags',JSON.stringify(tags))
-  },[tags])
+  useUpdate(() => {
+    window.localStorage.setItem('tags', JSON.stringify(tags));
+  }, [tags]);
   const findTag = (id: number) => tags.filter(tag => tag.id === id)[0];
   const findTagIndex = (id: number) => {
     let result = -1;
@@ -63,7 +63,12 @@ const useTags = () => {
     }
   };
 
+  const getName = (id: number) => {
+    const tag = tags.filter(t => t.id === id)[0];
+    return tag ? tag.name : '';
+  };
 
-  return {tags, setTags, findTag, findTagIndex, updateTag, deleteTag, addTag};
+
+  return {tags, getName, setTags, findTag, findTagIndex, updateTag, deleteTag, addTag};
 };
 export {useTags};
