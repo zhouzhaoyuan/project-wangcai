@@ -1,6 +1,6 @@
 import Page from '../components/Page';
 import React from 'react';
-import {useTags} from 'useTags';
+import {useTags} from 'hooks/useTags';
 import styled from 'styled-components';
 import Icon from 'components/Icon';
 import {Link} from 'react-router-dom';
@@ -28,14 +28,14 @@ const TagList = styled.ol`
 
 
 const Tags = () => {
-  const {tags} = useTags();
+  const {tags,addTag} = useTags();
   return (
     <Page>
       <TagList>
         {tags.map(tag =>
           <li key={tag.id}>
             <Link to={'/tags/' + tag.id}>
-              <span className="oneLine">{tag.name}</span>
+              <span className="oneLine">{tag.id}{tag.name}</span>
               <Icon name={'right'}></Icon>
             </Link>
           </li>
@@ -45,7 +45,7 @@ const Tags = () => {
         <Space/>
         <Space/>
         <Space/>
-        <Button>添加标签</Button>
+        <Button onClick={addTag}>添加标签</Button>
       </Center>
     </Page>
   );
