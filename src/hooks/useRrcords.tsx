@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-type RecordItem = {
+export type RecordItem = {
   tagIds:number[]
   note:string
   category:'-' | '+'
@@ -30,6 +30,5 @@ const useRecords = () => {
     return true
   }
   return {records,addRecord}
-
 }
 export {useRecords}

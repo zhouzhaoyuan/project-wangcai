@@ -1,13 +1,11 @@
-import Page from '../components/Page';
+import Page from 'components/Page';
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import TagsSection from './Money/TagsSection';
 import NoteSection from './Money/NoteSection';
 import CategorySection from './Money/CategorySection';
 import NumberPadSection from './Money/NumberPadSection';
-import {Simulate} from 'react-dom/test-utils';
-import submit = Simulate.submit;
-import {useRecords} from '../hooks/useRrcords';
+import {useRecords} from 'hooks/useRrcords';
 
 const MyLayout = styled(Page)`
   display: flex;
@@ -43,11 +41,7 @@ const Money = () => {
   `;
 
   return (
-
     <MyLayout>
-      {JSON.stringify(selected)}
-
-      <hr/>
       <TagsSection value={selected.tagIds}
                    onChange={(tagIds) => onChange({tagIds})}
       />
