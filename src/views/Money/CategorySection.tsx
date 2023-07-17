@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import React, {FC, useState} from 'react';
 
+
 const Wrapper = styled.section`
   font-size: 24px;
   >ul{
@@ -37,7 +38,7 @@ const CategorySection:FC<Props> = (props) => {
     <Wrapper>
       <ul>
         {categoryList.map(c =>
-          <li className={category === c ? 'selected' : ''}
+          <li key={c} className={category === c ? 'selected' : ''}
               onClick={() => {props.onChange(c)}}
           >
             {categoryMap[c]}

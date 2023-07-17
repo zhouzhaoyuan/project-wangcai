@@ -1,5 +1,6 @@
 {
   "name": "money",
+  "homepage": "https://https://zhouzhaoyuan.github.io/project-wangcai-website/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,7 +13,7 @@
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.34",
     "@types/react": "^18.2.8",
-    "@types/react-dom": "^18.2.4",
+    "@types/react-dom": "^18.2.8",
     "babel-jest": "^27.4.2",
     "babel-loader": "^8.2.3",
     "babel-plugin-named-asset-import": "^0.3.8",
@@ -43,10 +44,10 @@
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^7.0.1",
     "prompts": "^2.4.2",
-    "react": "^18.2.0",
+    "react": "^18.2.8",
     "react-app-polyfill": "^3.0.0",
     "react-dev-utils": "^12.0.1",
-    "react-dom": "^18.2.0",
+    "react-dom": "^18.2.8",
     "react-refresh": "^0.11.0",
     "react-router-dom": "^6.11.2",
     "resolve": "^1.20.0",
@@ -69,7 +70,10 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
+
   },
   "eslintConfig": {
     "extends": [

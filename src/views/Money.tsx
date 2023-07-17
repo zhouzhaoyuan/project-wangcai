@@ -28,7 +28,7 @@ const Money = () => {
       ...obj
     });
   };
-  const {records, addRecord} = useRecords();
+  const {addRecord} = useRecords();
   const submit = () => {
     if (addRecord(selected)) {
       alert('保存成功');
